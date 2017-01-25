@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class move : MonoBehaviour {
@@ -6,7 +6,7 @@ public class move : MonoBehaviour {
 	Vector2 dest = Vector2.zero;
 	public float speed = 0.1f;
 
-
+    //test de commit
 	// Use this for initialization
 	void Start () {
 		dest = transform.position;
