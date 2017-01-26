@@ -48,21 +48,35 @@ public class Player : MonoBehaviour {
         {
             anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Vertical")));
         }
+
+        if (Input.GetKey(KeyCode.Q))
+        {
+            if (anim.GetBool("left") == false){
+                anim.SetFloat("speed", 0);
+                anim.SetBool("fighting", true);
+            }
+            else
+            {
+                anim.SetFloat("speed", 0);
+                anim.SetBool("fighting", true);
+            }
+        }
     }
 
     void FixedUpdate()
     {
         xSpeed = 800f;
         zSpeed = 100f;
-        if (Input.GetKey(KeyCode.LeftArrow) == true && Input.GetKey(KeyCode.RightArrow)== true)
+        if (Input.GetKey(KeyCode.LeftArrow) == true && Input.GetKey(KeyCode.RightArrow)== true || (anim.GetBool("fighting") == true ) || (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true))
         {
             xSpeed = 0f;
-        }
-
-        if (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true)
-        {
             zSpeed = 0f;
         }
+
+        /*if (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true)
+        {
+            zSpeed = 0f;
+        }*/
 
         float x = Input.GetAxis("Horizontal");
         
