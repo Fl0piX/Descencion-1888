@@ -75,13 +75,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <Compile Include="Assets\CharacterStats.cs" />
-    <Compile Include="Assets\doDamage.cs" />
-=======
     <Compile Include="Assets\Healthbar\healthbar.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
->>>>>>> 994ce1484d4510c2fff8cd61513ab7cd8eb449e9
+    <Compile Include="Assets\Scripts\ia.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

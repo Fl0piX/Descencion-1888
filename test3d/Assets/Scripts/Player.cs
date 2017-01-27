@@ -12,14 +12,18 @@ public class Player : MonoBehaviour {
 
     private Rigidbody rb;
     private Animator anim;
+    private GameObject rightPunch;
 	// Use this for initialization
 	void Start () {
         rb = gameObject.GetComponent<Rigidbody>();
         anim = gameObject.GetComponent<Animator>();
+        rightPunch = GameObject.Find("Right Punch");
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        
 
         if (Input.GetKey(KeyCode.LeftArrow) == true && Input.GetKey(KeyCode.RightArrow) == true)
         {
@@ -54,6 +58,7 @@ public class Player : MonoBehaviour {
             if (anim.GetBool("left") == false){
                 anim.SetFloat("speed", 0);
                 anim.SetBool("fighting", true);
+                rightPunch.GetComponent<BoxCollider>().isTrigger = false;
             }
             else
             {
