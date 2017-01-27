@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ia : MonoBehaviour {
 
 	Vector3 dest = Vector3.zero;
-	public float speed;
+	public float speed = 0.1f;
 
     //test de commit
 	// Use this for initialization
@@ -20,10 +20,10 @@ public class ia : MonoBehaviour {
 
 		Vector3 p = Vector3.MoveTowards(transform.position, dest, speed);
 		GetComponent<Rigidbody>().MovePosition(p);
-        
+        dest = transform.position;
 
         if ((Vector3)transform.position == dest) {
-            speed = 1f;
+            
             dest = GameObject.Find("Gavrouche").transform.position;
             GetComponent<Rigidbody>().MovePosition(p);
 
