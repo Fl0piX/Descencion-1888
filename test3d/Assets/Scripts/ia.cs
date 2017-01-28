@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ia : MonoBehaviour {
 
 	Vector3 dest = Vector3.zero;
+    GameObject Gavrouche = GameObject.Find("Gavrouche");
 	public float speed = 0.1f;
 
     //test de commit
@@ -21,10 +22,6 @@ public class ia : MonoBehaviour {
 		Vector3 p = Vector3.MoveTowards(transform.position, dest, speed);
 		GetComponent<Rigidbody>().MovePosition(p);
         dest = transform.position;
-<<<<<<< HEAD
-        
-=======
->>>>>>> d58dbb4f616df5d7fad6ec637ef2aadfc2c633d3
 
         if ((Vector3)transform.position == dest) {
             
@@ -32,10 +29,10 @@ public class ia : MonoBehaviour {
 
         }
 
-        /*if (Vector3.Distance(GameObject.FindGameObjectWithTag("Gavrouche").transform.position, transform.position) < 2)
+        if ((transform.position.x) - (Gavrouche.transform.position.x) < 2)
         {
-            
-        }*/
+            anim.SetBool("fighting", true);
+        }
 
     }
 }
