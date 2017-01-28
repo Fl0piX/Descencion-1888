@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ia : MonoBehaviour {
 
 	Vector3 dest = Vector3.zero;
+    GameObject Gavrouche = GameObject.Find("Gavrouche");
 	public float speed = 0.1f;
 
     //test de commit
@@ -28,10 +29,10 @@ public class ia : MonoBehaviour {
 
         }
 
-        /*if (Vector3.Distance(GameObject.FindGameObjectWithTag("Gavrouche").transform.position, transform.position) < 2)
+        if ((transform.position.x) - (Gavrouche.transform.position.x) < 2)
         {
-            
-        }*/
+            anim.SetBool("fighting", true);
+        }
 
     }
 }

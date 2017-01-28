@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
 	void Start () {
         rb = gameObject.GetComponent<Rigidbody>();
         anim = gameObject.GetComponent<Animator>();
-        rightPunch = GameObject.Find("Right Punch");
+        //rightPunch = GameObject.Find("Right Punch");
         
 	}
 	
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour {
             if (anim.GetBool("left") == false){
                 anim.SetFloat("speed", 0);
                 anim.SetBool("fighting", true);
-                rightPunch.GetComponent<BoxCollider>().isTrigger = false;
+                //rightPunch.GetComponent<BoxCollider>().isTrigger = false;
             }
             else
             {
