@@ -32,6 +32,7 @@ public class ia : MonoBehaviour {
         if ((transform.position.x) - (Gavrouche.transform.position.x) < 2)
         {
             anim.SetBool("fighting", true);
+            GetComponent<healthbar>().setDamages(1); // Ca marche pas :(
         }
 
     }
