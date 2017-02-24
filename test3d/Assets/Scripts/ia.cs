@@ -8,6 +8,7 @@ public class ia : MonoBehaviour {
 	Vector3 dest = Vector3.zero;
     //GameObject Gavrouche = GameObject.Find("Gavrouche");
 	public float speed = 0.1f;
+    public float damages;
 
     //test de commit
 	// Use this for initialization
@@ -26,11 +27,19 @@ public class ia : MonoBehaviour {
             dest = GameObject.Find("Gavrouche").transform.position;
         }
 
-        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 20)
+        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 20 && anim.GetBool("canhit") == true)
         {
-            anim.SetBool("fighting", true);
-            GetComponent<healthbar>().setDamages(1);
+            //anim.SetBool("fighting", true);
+            //InvokeRepeating("fight", 0, 90000000f); (à voir plus tard, ça marche pas trop trop bien)
+
+            fight();
+            anim.SetBool("canhit", false);
         }
 
+    }
+
+    void fight()
+    {
+        GetComponent<healthbar>().setDamages(damages);
     }
 }
