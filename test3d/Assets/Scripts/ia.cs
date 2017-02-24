@@ -27,7 +27,7 @@ public class ia : MonoBehaviour {
             dest = GameObject.Find("Gavrouche").transform.position;
         }
 
-        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 20 && anim.GetBool("canhit") == true)
+        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 20)
         {
             //anim.SetBool("fighting", true);
             //InvokeRepeating("fight", 0, 90000000f); (à voir plus tard, ça marche pas trop trop bien)
