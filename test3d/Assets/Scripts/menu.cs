@@ -14,7 +14,7 @@ public class menu : MonoBehaviour {
         Application.Quit();
     }
 
-    public void son()
+    public void playMusic()
     {
         AudioSource music = GetComponent<AudioSource>();
         if (!music.isPlaying)

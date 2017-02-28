@@ -17,7 +17,7 @@ Platform assembly: C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Desce
 Loading C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
 Loading C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.065 seconds
+- Completed reload, in  0.057 seconds
 Platform assembly: C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
@@ -32,6 +32,6 @@ The referenced script on this Behaviour (Game Object 'Main Camera') is missing!
  
 (Filename:  Line: 1754)
 
-UnloadTime: 3.719190 ms
+UnloadTime: 3.232598 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2e80 -> priority: 1 
+  Thread -> id: 4418 -> priority: 1 
