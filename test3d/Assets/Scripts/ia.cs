@@ -10,10 +10,14 @@ public class ia : MonoBehaviour {
 	public float speed = 0.1f;
     public float damages;
 
+    public float timer = 0;
+    public float timerMax;
+
     //test de commit
 	// Use this for initialization
 	void Start () {
 		dest = transform.position;
+        timer = 0;
 	}
 	
 	// Update is called once per frame
@@ -27,14 +31,20 @@ public class ia : MonoBehaviour {
             dest = GameObject.Find("Gavrouche").transform.position;
         }
 
-        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 20)
+        timer += Time.deltaTime;
+        if (timer > timerMax)
         {
-            //anim.SetBool("fighting", true);
-            //InvokeRepeating("fight", 0, 90000000f); (à voir plus tard, ça marche pas trop trop bien)
+            timer = 0;
 
-            fight();
-            anim.SetBool("canhit", false);
+            if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 20)
+            {
+                anim.SetBool("fighting", true);
+
+                fight();
+                anim.SetBool("canhit", false);
+            }
         }
+        
 
     }
 
