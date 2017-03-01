@@ -10,16 +10,31 @@ public class MenuPause : MonoBehaviour {
     private bool isPaused = false;
     private GameObject continuer;
     private GameObject healthbar;
+    private GameObject confirmation;
     public Button Continuer;
+    public Button MainMenu;
+    public Button Quitter;
+    public Button Oui;
+    public Button Non;
     // Use this for initialization
     void Start () {
 
-        continuer = GameObject.Find("Continuer");
+        confirmation = GameObject.Find("Confirmation");
+        continuer = GameObject.Find("Interface");
         healthbar = GameObject.Find("Healthbar");
         Button resume = Continuer.GetComponent<Button>();
+        Button menu = MainMenu.GetComponent<Button>();
+        Button quit = Quitter.GetComponent<Button>();
+        Button Yes = Oui.GetComponent<Button>();
+        Button No = Non.GetComponent<Button>();
+        menu.onClick.AddListener(menuPrincipal);
         resume.onClick.AddListener(stopPause);
-
+        Yes.onClick.AddListener(quitGame);
+        No.onClick.AddListener(noQuit);
+        quit.onClick.AddListener(confirmationQuit);
         continuer.SetActive(false);
+        confirmation.SetActive(false);
+
 	}
 	
 	// Update is called once per frame
@@ -58,5 +73,27 @@ public class MenuPause : MonoBehaviour {
     void stopPause()
     {
         isPaused = false;
+    }
+
+    void menuPrincipal()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    void quitGame()
+    {
+        Application.Quit();
+    }
+
+    void noQuit()
+    {
+        confirmation.SetActive(false);
+        continuer.SetActive(true);
+    }
+
+    void confirmationQuit()
+    {
+        continuer.SetActive(false);
+        confirmation.SetActive(true);
     }
 }
