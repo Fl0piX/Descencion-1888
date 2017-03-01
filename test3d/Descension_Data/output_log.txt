@@ -2,6 +2,7 @@ Initialize engine version: 5.5.0f3 (38b4efef76f0)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
+<<<<<<< HEAD
     Renderer: Intel(R) HD Graphics (ID=0x22b1)
     Vendor:   Intel
     VRAM:     2104 MB
@@ -21,6 +22,27 @@ Loading C:\Users\Flopix\Desktop\Descension\Descencion-1888\test3d\Descension_Dat
 Platform assembly: C:\Users\Flopix\Desktop\Descension\Descencion-1888\test3d\Descension_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Flopix\Desktop\Descension\Descencion-1888\test3d\Descension_Data\Managed\System.dll (this message is harmless)
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+=======
+    Renderer: NVIDIA GeForce 840M (ID=0x1341)
+    Vendor:   NVIDIA
+    VRAM:     2019 MB
+    Driver:   20.19.15.4531
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.057 seconds
+Platform assembly: C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+>>>>>>> e4b5a1716397ac5a120e6247f17f3a4bf8ce10e5
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
@@ -33,6 +55,7 @@ The referenced script on this Behaviour (Game Object 'Main Camera') is missing!
  
 (Filename:  Line: 1754)
 
+<<<<<<< HEAD
 UnloadTime: 3.735161 ms
 Setting up 1 worker threads for Enlighten.
   Thread -> id: 1f90 -> priority: 1 
@@ -54,3 +77,8 @@ NullReferenceException: Object reference not set to an instance of an object
  
 (Filename:  Line: -1)
 
+=======
+UnloadTime: 3.232598 ms
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 4418 -> priority: 1 
+>>>>>>> e4b5a1716397ac5a120e6247f17f3a4bf8ce10e5
