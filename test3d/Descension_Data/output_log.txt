@@ -17,7 +17,7 @@ Platform assembly: C:\Users\Flopix\Desktop\Descension\Descencion-1888\test3d\Des
 Loading C:\Users\Flopix\Desktop\Descension\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Flopix\Desktop\Descension\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
 Loading C:\Users\Flopix\Desktop\Descension\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.116 seconds
+- Completed reload, in  0.119 seconds
 Platform assembly: C:\Users\Flopix\Desktop\Descension\Descencion-1888\test3d\Descension_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Flopix\Desktop\Descension\Descencion-1888\test3d\Descension_Data\Managed\System.dll (this message is harmless)
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
@@ -33,24 +33,6 @@ The referenced script on this Behaviour (Game Object 'Main Camera') is missing!
  
 (Filename:  Line: 1754)
 
-UnloadTime: 3.784443 ms
+UnloadTime: 3.568114 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 16b8 -> priority: 1 
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 14.408790 ms
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 505.
-Total: 0.662421 ms (FindLiveObjects: 0.103683 ms CreateObjectMapping: 0.034561 ms MarkObjects: 0.505616 ms  DeleteObjects: 0.017280 ms)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at healthbar.setColor (Single value) [0x00000] in <filename unknown>:0 
-  at healthbar.Start () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException: Object reference not set to an instance of an object
-  at healthbar.setColor (Single value) [0x00000] in <filename unknown>:0 
-  at healthbar.Start () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
+  Thread -> id: 20cc -> priority: 1 
