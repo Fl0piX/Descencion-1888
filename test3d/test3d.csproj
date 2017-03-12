@@ -81,6 +81,7 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\ia.cs" />
     <Compile Include="Assets\Scripts\menu.cs" />
+    <Compile Include="Assets\Scripts\tab.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
