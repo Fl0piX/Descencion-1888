@@ -71,6 +71,11 @@ public class ia : MonoBehaviour {
     void fight()
     {
         GetComponent<healthbar>().setDamages(damages); // Gavrouche perd sa vie
+
+        GameObject.Find("Gavrouche").GetComponent<Animator>().SetBool("takeDmg", true);
+        dest = transform.position;
+
+
         //GameObject.Find("Gavrouche").GetComponent<Player>().enable = false;
     }
 }
