@@ -9,20 +9,27 @@ public class ia : MonoBehaviour {
     //GameObject Gavrouche = GameObject.Find("Gavrouche");
 	public float speed = 0.1f;
     public float damages;
+    public float life;
+    public float receivedDamages;
 
-    public float timer = 0;
-    public float timerMax;
+    float timerDamages;
+    public float timerLife;
+    public float timerMaxDamages;
+    public float timerMaxLife;
 
     //test de commit
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		dest = transform.position;
-        timer = 0;
+        timerDamages = 0;
+        timerLife = 0;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
         Animator anim = GetComponent<Animator>();
+
+        //déplacements
 
 		Vector3 p = Vector3.MoveTowards(transform.position, dest, speed);
 		GetComponent<Rigidbody>().MovePosition(p);
@@ -31,25 +38,39 @@ public class ia : MonoBehaviour {
             dest = GameObject.Find("Gavrouche").transform.position;
         }
 
-        timer += Time.deltaTime;
-        if (timer > timerMax)
+        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 20)
         {
-            timer = 0;
-
-            if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 20)
+            // donne un coup
+            timerDamages += Time.deltaTime;
+            if (timerDamages > timerMaxDamages)
             {
-                anim.SetBool("fighting", true);
-
+                timerDamages = 0;
                 fight();
-                anim.SetBool("canhit", false);
+                GameObject.Find("Gavrouche").GetComponent<Animator>().SetBool("takeDmg", false);
+            }
+
+            // reçoit un coup
+            if (GameObject.Find("Gavrouche").GetComponent<Animator>().GetBool("fighting") == true)
+            {
+                timerLife += Time.deltaTime;
+                if (timerLife > timerMaxLife)
+                {
+                    life -= receivedDamages;
+                }
             }
         }
-        
 
+        //mort
+        if (life <= 0)
+        {
+            GameObject.Find("Garde").SetActive(false);
+        }
     }
 
     void fight()
     {
-        GetComponent<healthbar>().setDamages(damages);
+        GetComponent<healthbar>().setDamages(damages); // Gavrouche perd sa vie
+        GameObject.Find("Gavrouche").GetComponent<Animator>().SetBool("takeDmg", true);
+        //GameObject.Find("Gavrouche").GetComponent<Player>().enable = false;
     }
 }
