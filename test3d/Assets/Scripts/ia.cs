@@ -12,10 +12,14 @@ public class ia : MonoBehaviour {
     public float life;
     public float receivedDamages;
 
+    bool move = true;
+
     float timerDamages;
-    public float timerLife;
+    float timerLife;
+    float timerMove;
     public float timerMaxDamages;
     public float timerMaxLife;
+    public float timerMaxMove;
 
     //test de commit
     // Use this for initialization
@@ -23,6 +27,7 @@ public class ia : MonoBehaviour {
 		dest = transform.position;
         timerDamages = 0;
         timerLife = 0;
+        timerMove = 0;
 	}
 	
 	// Update is called once per frame
@@ -31,14 +36,20 @@ public class ia : MonoBehaviour {
 
         //déplacements
 
-		Vector3 p = Vector3.MoveTowards(transform.position, dest, speed);
-		GetComponent<Rigidbody>().MovePosition(p);
+        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) >= 16 && move == true)
+        {
+            Vector3 p = Vector3.MoveTowards(transform.position, dest, speed);
+            GetComponent<Rigidbody>().MovePosition(p);
 
-        if (Vector3.Distance(dest, transform.position) < 20) {            
-            dest = GameObject.Find("Gavrouche").transform.position;
+            if (Vector3.Distance(dest, transform.position) < 20)
+            {
+                dest = GameObject.Find("Gavrouche").transform.position;
+            }
         }
 
-        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 20)
+
+
+        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 16)
         {
             // donne un coup
             timerDamages += Time.deltaTime;
@@ -56,6 +67,7 @@ public class ia : MonoBehaviour {
                 timerLife += Time.deltaTime;
                 if (timerLife > timerMaxLife)
                 {
+                    timerLife = 0;
                     life -= receivedDamages;
                 }
             }
@@ -71,10 +83,18 @@ public class ia : MonoBehaviour {
     void fight()
     {
         GetComponent<healthbar>().setDamages(damages); // Gavrouche perd sa vie
+        move = false;
+        
+        // L'ennemi ne bouge plus
+        timerMove += Time.deltaTime;
+        if (timerMove > timerMaxMove)
+        {
+            move = true;
+            timerMove = 0;
+        }
+        // L'ennemi bouge
 
         GameObject.Find("Gavrouche").GetComponent<Animator>().SetBool("takeDmg", true);
-        dest = transform.position;
-
 
         //GameObject.Find("Gavrouche").GetComponent<Player>().enable = false;
     }
