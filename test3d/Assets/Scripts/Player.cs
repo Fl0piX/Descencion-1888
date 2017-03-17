@@ -53,6 +53,7 @@ public class Player : MonoBehaviour {
         else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
         {
             anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Vertical")));
+            anim.SetFloat("speed", 25);
         }
 
         if (Input.GetKey(KeyCode.Q))
