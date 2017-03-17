@@ -10,8 +10,6 @@ public class Player : MonoBehaviour {
     public bool fighting;
     public bool left;
 
-    public bool enable = true;
-
     private Rigidbody rb;
     private Animator anim;
     private GameObject rightPunch;
@@ -84,6 +82,7 @@ public class Player : MonoBehaviour {
 
     void FixedUpdate()
     {
+<<<<<<< HEAD
         if (enable == true)
         {
             
@@ -94,41 +93,51 @@ public class Player : MonoBehaviour {
                 xSpeed = 0f;
                 zSpeed = 0f;
             }
+=======
+        xSpeed = 800f;
+        zSpeed = 100f;
 
-            /*if (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true)
-            {
-                zSpeed = 0f;
-            }*/
-
-            float x = Input.GetAxis("Horizontal");
-
-            rb.AddForce((Vector3.right * xSpeed) * x);
-            if (Input.GetAxis("Vertical") != 0)
-            {
-                rb.transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * zSpeed * Time.deltaTime);
-
-            }
-
-            if (rb.velocity.x > maxSpeed)
-            {
-                rb.velocity = new Vector3(maxSpeed, rb.velocity.y);
-            }
-
-            if (rb.velocity.x < -maxSpeed)
-            {
-                rb.velocity = new Vector3(-maxSpeed, rb.velocity.y);
-            }
-
-            if (rb.velocity.y > maxSpeed)
-            {
-                rb.velocity = new Vector3(maxSpeed, rb.velocity.x);
-            }
-
-            if (rb.velocity.y < -maxSpeed)
-            {
-                rb.velocity = new Vector3(-maxSpeed, rb.velocity.x);
-            }
+        if (Input.GetKey(KeyCode.LeftArrow) == true && Input.GetKey(KeyCode.RightArrow) == true || (anim.GetBool("fighting") == true) || (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true))
+        {
+            xSpeed = 0f;
+            zSpeed = 0f;
         }
+>>>>>>> e28885d61aa5afd5e984ce1b2733f95340596ef4
+
+        /*if (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true)
+        {
+            zSpeed = 0f;
+        }*/
+
+        float x = Input.GetAxis("Horizontal");
+
+        rb.AddForce((Vector3.right * xSpeed) * x);
+        if (Input.GetAxis("Vertical") != 0)
+        {
+            rb.transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * zSpeed * Time.deltaTime);
+
+        }
+
+        if (rb.velocity.x > maxSpeed)
+        {
+            rb.velocity = new Vector3(maxSpeed, rb.velocity.y);
+        }
+
+        if (rb.velocity.x < -maxSpeed)
+        {
+            rb.velocity = new Vector3(-maxSpeed, rb.velocity.y);
+        }
+
+        if (rb.velocity.y > maxSpeed)
+        {
+            rb.velocity = new Vector3(maxSpeed, rb.velocity.x);
+        }
+
+        if (rb.velocity.y < -maxSpeed)
+        {
+            rb.velocity = new Vector3(-maxSpeed, rb.velocity.x);
+        }
+        
     }
 
     private IEnumerator stopMoveOnHitting()
