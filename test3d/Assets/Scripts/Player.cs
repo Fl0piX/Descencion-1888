@@ -26,6 +26,11 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
+        if (anim.GetBool("fighting") == true)
+        {
+            xSpeed = 0;
+            zSpeed = 0;
+        }
 
         if (Input.GetKey(KeyCode.LeftArrow) == true && Input.GetKey(KeyCode.RightArrow) == true)
         {
@@ -58,24 +63,30 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.Q))
         {
-            if (anim.GetBool("left") == false){
-                anim.SetFloat("speed", 0);
-                anim.SetBool("fighting", true);
-                //rightPunch.GetComponent<BoxCollider>().isTrigger = false;
-            }
-            else
-            {
-                anim.SetFloat("speed", 0);
-                anim.SetBool("fighting", true);
-            }
+            StartCoroutine(stopMoveOnHitting());
         }
+        if (fighting == true)
+        {
+            zSpeed = 0;
+            xSpeed = 0;
+            anim.SetBool("fighting", true);
+            anim.SetFloat("speed", 0);
+        }
+
+        if(anim.GetBool("takeDmg") == true)
+        {
+            StartCoroutine(takeDmg());
+            
+        }
+
+       
     }
 
     void FixedUpdate()
     {
         if (enable == true)
         {
-
+            
             xSpeed = 800f;
             zSpeed = 100f;
             if (Input.GetKey(KeyCode.LeftArrow) == true && Input.GetKey(KeyCode.RightArrow) == true || (anim.GetBool("fighting") == true) || (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true))
@@ -118,5 +129,22 @@ public class Player : MonoBehaviour {
                 rb.velocity = new Vector3(-maxSpeed, rb.velocity.x);
             }
         }
+    }
+
+    private IEnumerator stopMoveOnHitting()
+    {
+        fighting = true;
+        anim.SetTrigger("fighting");
+        // Wait for 1 second
+        yield return new WaitForSeconds(0.7f);
+        fighting = false;
+
+    }
+
+    private IEnumerator takeDmg()
+    {
+        
+        yield return new WaitForSeconds(2f);
+        anim.SetBool("takeDmg", false);
     }
 }
