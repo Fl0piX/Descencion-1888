@@ -10,8 +10,6 @@ public class Player : MonoBehaviour {
     public bool fighting;
     public bool left;
 
-    public bool enable = true;
-
     private Rigidbody rb;
     private Animator anim;
     private GameObject rightPunch;
@@ -53,6 +51,7 @@ public class Player : MonoBehaviour {
         else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
         {
             anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Vertical")));
+            anim.SetFloat("speed", 25);
         }
 
         if (Input.GetKey(KeyCode.Q))
@@ -72,50 +71,48 @@ public class Player : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (enable == true)
+        xSpeed = 800f;
+        zSpeed = 100f;
+
+        if (Input.GetKey(KeyCode.LeftArrow) == true && Input.GetKey(KeyCode.RightArrow) == true || (anim.GetBool("fighting") == true) || (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true))
         {
-
-            xSpeed = 800f;
-            zSpeed = 100f;
-            if (Input.GetKey(KeyCode.LeftArrow) == true && Input.GetKey(KeyCode.RightArrow) == true || (anim.GetBool("fighting") == true) || (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true))
-            {
-                xSpeed = 0f;
-                zSpeed = 0f;
-            }
-
-            /*if (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true)
-            {
-                zSpeed = 0f;
-            }*/
-
-            float x = Input.GetAxis("Horizontal");
-
-            rb.AddForce((Vector3.right * xSpeed) * x);
-            if (Input.GetAxis("Vertical") != 0)
-            {
-                rb.transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * zSpeed * Time.deltaTime);
-
-            }
-
-            if (rb.velocity.x > maxSpeed)
-            {
-                rb.velocity = new Vector3(maxSpeed, rb.velocity.y);
-            }
-
-            if (rb.velocity.x < -maxSpeed)
-            {
-                rb.velocity = new Vector3(-maxSpeed, rb.velocity.y);
-            }
-
-            if (rb.velocity.y > maxSpeed)
-            {
-                rb.velocity = new Vector3(maxSpeed, rb.velocity.x);
-            }
-
-            if (rb.velocity.y < -maxSpeed)
-            {
-                rb.velocity = new Vector3(-maxSpeed, rb.velocity.x);
-            }
+            xSpeed = 0f;
+            zSpeed = 0f;
         }
+
+        /*if (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true)
+        {
+            zSpeed = 0f;
+        }*/
+
+        float x = Input.GetAxis("Horizontal");
+
+        rb.AddForce((Vector3.right * xSpeed) * x);
+        if (Input.GetAxis("Vertical") != 0)
+        {
+            rb.transform.Translate(Vector3.forward * Input.GetAxis("Vertical") * zSpeed * Time.deltaTime);
+
+        }
+
+        if (rb.velocity.x > maxSpeed)
+        {
+            rb.velocity = new Vector3(maxSpeed, rb.velocity.y);
+        }
+
+        if (rb.velocity.x < -maxSpeed)
+        {
+            rb.velocity = new Vector3(-maxSpeed, rb.velocity.y);
+        }
+
+        if (rb.velocity.y > maxSpeed)
+        {
+            rb.velocity = new Vector3(maxSpeed, rb.velocity.x);
+        }
+
+        if (rb.velocity.y < -maxSpeed)
+        {
+            rb.velocity = new Vector3(-maxSpeed, rb.velocity.x);
+        }
+        
     }
 }

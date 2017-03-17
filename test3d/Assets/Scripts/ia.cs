@@ -16,13 +16,17 @@ public class ia : MonoBehaviour {
     float timerLife;
     public float timerMaxDamages;
     public float timerMaxLife;
+    float timerMove;
+    float timerMaxMove;
+    public float min;
+    public float max;
 
-    //test de commit
     // Use this for initialization
     void Start () {
 		dest = transform.position;
         timerDamages = 0;
         timerLife = 0;
+        timerMove = 0;
 	}
 	
 	// Update is called once per frame
@@ -30,16 +34,41 @@ public class ia : MonoBehaviour {
         Animator anim = GetComponent<Animator>();
 
         //déplacements
-
         if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) >= 16)
         {
+            GameObject.Find("Garde").GetComponent<Animator>().SetBool("isFighting", true);
+
+            // Après avoir mis un coup, il s'arrête quelques secondes //
+            if (speed == 0.0f)
+            {
+                timerMove += Time.deltaTime;
+                timerMaxMove = Random.value*(max-min)+min;
+                if (timerMove > timerMaxMove)
+                {
+                    timerMove = 0;
+                    speed = 0.5f;
+                }
+            }
+            else
+            {
+                speed = 0.5f;
+            }
+            //                 //                 //                 //
+            
             Vector3 p = Vector3.MoveTowards(transform.position, dest, speed);
             GetComponent<Rigidbody>().MovePosition(p);
 
-            if (Vector3.Distance(dest, transform.position) < 20)
+            GameObject.Find("Garde").GetComponent<Animator>().SetFloat("Speed", speed);
+
+            if (Vector3.Distance(dest, transform.position) < 16)
             {
                 dest = GameObject.Find("Gavrouche").transform.position;
             }
+        }
+        else
+        {
+            speed = 0.0f;
+            GameObject.Find("Garde").GetComponent<Animator>().SetFloat("Speed", speed);
         }
 
 
@@ -79,10 +108,7 @@ public class ia : MonoBehaviour {
     {
         GetComponent<healthbar>().setDamages(damages); // Gavrouche perd sa vie
 
-        
-
         GameObject.Find("Gavrouche").GetComponent<Animator>().SetBool("takeDmg", true);
-
-        //GameObject.Find("Gavrouche").GetComponent<Player>().enable = false;
+        GameObject.Find("Garde").GetComponent<Animator>().SetBool("isFighting", true);
     }
 }
