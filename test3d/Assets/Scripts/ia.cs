@@ -12,14 +12,10 @@ public class ia : MonoBehaviour {
     public float life;
     public float receivedDamages;
 
-    bool move = true;
-
     float timerDamages;
     float timerLife;
-    float timerMove;
     public float timerMaxDamages;
     public float timerMaxLife;
-    public float timerMaxMove;
 
     //test de commit
     // Use this for initialization
@@ -27,7 +23,6 @@ public class ia : MonoBehaviour {
 		dest = transform.position;
         timerDamages = 0;
         timerLife = 0;
-        timerMove = 0;
 	}
 	
 	// Update is called once per frame
@@ -36,7 +31,7 @@ public class ia : MonoBehaviour {
 
         //déplacements
 
-        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) >= 16 && move == true)
+        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) >= 16)
         {
             Vector3 p = Vector3.MoveTowards(transform.position, dest, speed);
             GetComponent<Rigidbody>().MovePosition(p);
@@ -83,16 +78,8 @@ public class ia : MonoBehaviour {
     void fight()
     {
         GetComponent<healthbar>().setDamages(damages); // Gavrouche perd sa vie
-        move = false;
+
         
-        // L'ennemi ne bouge plus
-        timerMove += Time.deltaTime;
-        if (timerMove > timerMaxMove)
-        {
-            move = true;
-            timerMove = 0;
-        }
-        // L'ennemi bouge
 
         GameObject.Find("Gavrouche").GetComponent<Animator>().SetBool("takeDmg", true);
 
