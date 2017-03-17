@@ -11,6 +11,9 @@ public class tab : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (GameObject.Find("Garde").activeSelf == true)
+        {
+
+        }
 	}
 }
