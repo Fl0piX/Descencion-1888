@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ia : MonoBehaviour {
 
 	Vector3 dest = Vector3.zero;
-    //GameObject Gavrouche = GameObject.Find("Gavrouche");
 	public float speed = 0.1f;
     public float damages;
     public float life;
@@ -38,7 +37,7 @@ public class ia : MonoBehaviour {
         {
             GameObject.Find("Garde").GetComponent<Animator>().SetBool("isFighting", true);
 
-            // Après avoir mis un coup, il s'arrête quelques secondes //
+            // Après avoir mis ou reçu un coup, il s'arrête quelques secondes //
             if (speed == 0.0f)
             {
                 timerMove += Time.deltaTime;
@@ -80,8 +79,6 @@ public class ia : MonoBehaviour {
             if (timerDamages > timerMaxDamages)
             {
                 timerDamages = 0;
-                GameObject.Find("Gavrouche").GetComponent<Animator>().SetBool("takeDmg", true);
-
                 fight();
             }
 
@@ -94,6 +91,10 @@ public class ia : MonoBehaviour {
                     timerLife = 0;
                     life -= receivedDamages;
                 }
+
+                speed = 0.0f;
+
+                GameObject.Find("Garde").GetComponent<Animator>().SetBool("TakeDmg", true);
             }
         }
 
