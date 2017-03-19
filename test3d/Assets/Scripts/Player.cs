@@ -71,24 +71,34 @@ public class Player : MonoBehaviour {
             anim.SetFloat("speed", 0);
         }
 
-        if(anim.GetBool("takeDmg") == true)
+        /*if(anim.GetBool("takeDmg") == true)
         {
             StartCoroutine(takeDmg());
-        }
+        }*/
 
        
     }
 
     void FixedUpdate()
     {
+<<<<<<< HEAD
         xSpeed = 800f;
         zSpeed = 100f;
+=======
 
+>>>>>>> f4544260e52546ec588a6ab126851f63cf8d86e4
+
+            xSpeed = 800f;
+            zSpeed = 25f;
         if (Input.GetKey(KeyCode.LeftArrow) == true && Input.GetKey(KeyCode.RightArrow) == true || (anim.GetBool("fighting") == true) || (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true))
         {
             xSpeed = 0f;
             zSpeed = 0f;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> f4544260e52546ec588a6ab126851f63cf8d86e4
 
         /*if (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true)
         {
@@ -136,10 +146,10 @@ public class Player : MonoBehaviour {
 
     }
 
-    private IEnumerator takeDmg()
+    /*private IEnumerator takeDmg()
     {
         
         yield return new WaitForSeconds(2f);
         anim.SetBool("takeDmg", false);
-    }
+    }*/
 }

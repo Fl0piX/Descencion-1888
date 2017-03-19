@@ -19,8 +19,20 @@ public class healthbar : MonoBehaviour {
     {
         if (healthBar.GetComponent<Scrollbar>().size <= 0.1)
         {
+<<<<<<< HEAD
             GameObject.Find("Gavrouche").GetComponent<Animator>().Play("Death"); // Quand Gavrouche meurt, retour au menu principal
             StartCoroutine(Death());
+=======
+
+
+
+            
+
+            GameObject.Find("Gavrouche").GetComponent<Animator>().Play("Death"); // Quand Gavrouche meurt, retour au menu principal
+            StartCoroutine(Death());
+            
+
+>>>>>>> f4544260e52546ec588a6ab126851f63cf8d86e4
         }
     }
 
