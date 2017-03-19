@@ -35,7 +35,7 @@ public class ia : MonoBehaviour {
         //déplacements
         if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) >= 16)
         {
-            GameObject.Find("Garde").GetComponent<Animator>().SetBool("isFighting", true);
+            GameObject.Find("Garde").GetComponent<Animator>().SetBool("isFighting", false);
 
             // Après avoir mis ou reçu un coup, il s'arrête quelques secondes //
             if (speed == 0.0f)
@@ -48,11 +48,7 @@ public class ia : MonoBehaviour {
                     speed = 0.5f;
                 }
             }
-            else
-            {
-                speed = 0.5f;
-            }
-            //                 //                 //                 //
+            //                    //                    //                    //
             
             Vector3 p = Vector3.MoveTowards(transform.position, dest, speed);
             GetComponent<Rigidbody>().MovePosition(p);
@@ -64,16 +60,11 @@ public class ia : MonoBehaviour {
                 dest = GameObject.Find("Gavrouche").transform.position;
             }
         }
-        else
+        else // Quand il touche Gavrouche
         {
             speed = 0.0f;
             GameObject.Find("Garde").GetComponent<Animator>().SetFloat("Speed", speed);
-        }
 
-
-
-        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 16)
-        {
             // donne un coup
             timerDamages += Time.deltaTime;
             if (timerDamages > timerMaxDamages)
@@ -85,16 +76,20 @@ public class ia : MonoBehaviour {
             // reçoit un coup
             if (GameObject.Find("Gavrouche").GetComponent<Animator>().GetBool("fighting") == true)
             {
-                timerLife += Time.deltaTime;
-                if (timerLife > timerMaxLife)
+                if (GameObject.Find("Gavrouche").GetComponent<Animator>().GetBool("left") == false
+                && GameObject.Find("Garde").GetComponent<Animator>().GetBool("right") == false
+                || GameObject.Find("Gavrouche").GetComponent<Animator>().GetBool("left") == true
+                && GameObject.Find("Garde").GetComponent<Animator>().GetBool("right") == true)
                 {
-                    timerLife = 0;
-                    life -= receivedDamages;
+                    timerLife += Time.deltaTime;
+                    if (timerLife > timerMaxLife)
+                    {
+                        timerLife = 0;
+                        life -= receivedDamages;
+                    }
+
+                    GameObject.Find("Garde").GetComponent<Animator>().SetBool("TakeDmg", true);
                 }
-
-                speed = 0.0f;
-
-                GameObject.Find("Garde").GetComponent<Animator>().SetBool("TakeDmg", true);
             }
         }
 
