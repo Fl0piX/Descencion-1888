@@ -14,14 +14,24 @@ public class healthbar : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (healthBar.GetComponent<Scrollbar>().size <= 0)
+        if (healthBar.GetComponent<Scrollbar>().size <= 0.1)
         {
-            SceneManager.LoadScene(0); // Quand Gavrouche meurt, retour au menu principal
+            GameObject.Find("Gavrouche").GetComponent<Animator>().Play("Death"); // Quand Gavrouche meurt, retour au menu principal
+            StartCoroutine(Death());
+            
         }
     }
 
     public void setDamages(float value)
     {
         healthBar.GetComponent<Scrollbar>().size -= value;
+    }
+
+    private IEnumerator Death()
+    {
+        
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(0);
+        
     }
 }

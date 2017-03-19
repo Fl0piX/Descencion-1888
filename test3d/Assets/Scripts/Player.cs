@@ -74,7 +74,6 @@ public class Player : MonoBehaviour {
         if(anim.GetBool("takeDmg") == true)
         {
             StartCoroutine(takeDmg());
-            
         }
 
        
