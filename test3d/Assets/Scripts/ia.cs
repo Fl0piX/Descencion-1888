@@ -26,6 +26,7 @@ public class ia : MonoBehaviour {
         timerDamages = 0;
         timerLife = 0;
         timerMove = 0;
+        
 	}
 	
 	// Update is called once per frame
@@ -33,19 +34,18 @@ public class ia : MonoBehaviour {
         Animator anim = GetComponent<Animator>();
 
         //déplacements
-        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) >= 16)
+        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) >= 25)
         {
             GameObject.Find("Garde").GetComponent<Animator>().SetBool("isFighting", false);
-<<<<<<< HEAD
+
 
             // Après avoir mis ou reçu un coup, il s'arrête quelques secondes //
-=======
             // Après avoir mis ou reçu un coup, il s'arrête quelques secondes
->>>>>>> 451a353602a86530a93f36342d4c2b2090367be1
+
             if (speed == 0.0f)
             {
                 timerMove += Time.deltaTime;
-                timerMaxMove = Random.value*(max-min)+min;
+                timerMaxMove = Random.value * (max - min) + min;
                 if (timerMove > timerMaxMove)
                 {
                     timerMove = 0;
@@ -53,13 +53,13 @@ public class ia : MonoBehaviour {
                 }
             }
             //                    //                    //                    //
-            
+
             Vector3 p = Vector3.MoveTowards(transform.position, dest, speed);
             GetComponent<Rigidbody>().MovePosition(p);
 
             GameObject.Find("Garde").GetComponent<Animator>().SetFloat("Speed", speed);
 
-            if (Vector3.Distance(dest, transform.position) < 16)
+            if (Vector3.Distance(dest, transform.position) < 25)
             {
                 dest = GameObject.Find("Gavrouche").transform.position;
             }
@@ -68,13 +68,11 @@ public class ia : MonoBehaviour {
         {
             speed = 0.0f;
             GameObject.Find("Garde").GetComponent<Animator>().SetFloat("Speed", speed);
+        }
 
-<<<<<<< HEAD
-=======
 
         if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 25)
         {
->>>>>>> 451a353602a86530a93f36342d4c2b2090367be1
             // donne un coup
             timerDamages += Time.deltaTime;
             if (timerDamages > timerMaxDamages)
@@ -98,8 +96,6 @@ public class ia : MonoBehaviour {
                         timerLife = 0;
                         life -= receivedDamages;
                     }
-
-                    GameObject.Find("Garde").GetComponent<Animator>().SetBool("TakeDmg", true);
                 }
             }
         }
@@ -117,15 +113,18 @@ public class ia : MonoBehaviour {
         //GetComponent<healthbar>().setDamages(damages); // Gavrouche perd sa vie
 
         
-        GameObject.Find("Gavrouche").GetComponent<Animator>().SetBool("takeDmg", true);
         
     }
 
     private IEnumerator oneHit()
     {
         GameObject.Find("Garde").GetComponent<Animator>().SetBool("isFighting", true);
-        yield return new WaitForSeconds(0.2f);
+        GameObject.Find("Gavrouche").GetComponent<Animator>().SetBool("takeDmg", true);
+
+        yield return new WaitForSeconds(0.5f);
         GetComponent<healthbar>().setDamages(damages);
         GameObject.Find("Garde").GetComponent<Animator>().SetBool("isFighting", false);
+        GameObject.Find("Gavrouche").GetComponent<Animator>().SetBool("takeDmg", false);
+
     }
 }
