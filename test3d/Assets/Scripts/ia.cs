@@ -36,8 +36,12 @@ public class ia : MonoBehaviour {
         if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) >= 16)
         {
             GameObject.Find("Garde").GetComponent<Animator>().SetBool("isFighting", false);
+<<<<<<< HEAD
 
             // Après avoir mis ou reçu un coup, il s'arrête quelques secondes //
+=======
+            // Après avoir mis ou reçu un coup, il s'arrête quelques secondes
+>>>>>>> 451a353602a86530a93f36342d4c2b2090367be1
             if (speed == 0.0f)
             {
                 timerMove += Time.deltaTime;
@@ -65,12 +69,19 @@ public class ia : MonoBehaviour {
             speed = 0.0f;
             GameObject.Find("Garde").GetComponent<Animator>().SetFloat("Speed", speed);
 
+<<<<<<< HEAD
+=======
+
+        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 25)
+        {
+>>>>>>> 451a353602a86530a93f36342d4c2b2090367be1
             // donne un coup
             timerDamages += Time.deltaTime;
             if (timerDamages > timerMaxDamages)
             {
                 timerDamages = 0;
                 fight();
+
             }
 
             // reçoit un coup
@@ -102,9 +113,19 @@ public class ia : MonoBehaviour {
 
     void fight()
     {
-        GetComponent<healthbar>().setDamages(damages); // Gavrouche perd sa vie
+        StartCoroutine(oneHit());
+        //GetComponent<healthbar>().setDamages(damages); // Gavrouche perd sa vie
 
+        
         GameObject.Find("Gavrouche").GetComponent<Animator>().SetBool("takeDmg", true);
+        
+    }
+
+    private IEnumerator oneHit()
+    {
         GameObject.Find("Garde").GetComponent<Animator>().SetBool("isFighting", true);
+        yield return new WaitForSeconds(0.2f);
+        GetComponent<healthbar>().setDamages(damages);
+        GameObject.Find("Garde").GetComponent<Animator>().SetBool("isFighting", false);
     }
 }

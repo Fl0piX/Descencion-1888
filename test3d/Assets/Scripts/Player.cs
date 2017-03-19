@@ -74,7 +74,6 @@ public class Player : MonoBehaviour {
         if(anim.GetBool("takeDmg") == true)
         {
             StartCoroutine(takeDmg());
-            
         }
 
        
@@ -82,6 +81,18 @@ public class Player : MonoBehaviour {
 
     void FixedUpdate()
     {
+<<<<<<< HEAD
+=======
+
+            xSpeed = 800f;
+            zSpeed = 100f;
+            if (Input.GetKey(KeyCode.LeftArrow) == true && Input.GetKey(KeyCode.RightArrow) == true || (anim.GetBool("fighting") == true) || (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true))
+            {
+                xSpeed = 0f;
+                zSpeed = 0f;
+            }
+
+>>>>>>> 451a353602a86530a93f36342d4c2b2090367be1
         xSpeed = 800f;
         zSpeed = 100f;
 
@@ -90,6 +101,10 @@ public class Player : MonoBehaviour {
             xSpeed = 0f;
             zSpeed = 0f;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 451a353602a86530a93f36342d4c2b2090367be1
 
         /*if (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true)
         {
