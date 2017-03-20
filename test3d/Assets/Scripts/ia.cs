@@ -37,16 +37,8 @@ public class ia : MonoBehaviour {
         if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) >= 25)
         {
             GameObject.Find("Garde").GetComponent<Animator>().SetBool("isFighting", false);
-<<<<<<< HEAD
 
             // Après avoir mis ou reçu un coup, il s'arrête quelques secondes //
-=======
-
-
-            // Après avoir mis ou reçu un coup, il s'arrête quelques secondes //
-            // Après avoir mis ou reçu un coup, il s'arrête quelques secondes
-
->>>>>>> f4544260e52546ec588a6ab126851f63cf8d86e4
             if (speed == 0.0f)
             {
                 timerMove += Time.deltaTime;
@@ -73,14 +65,7 @@ public class ia : MonoBehaviour {
         {
             speed = 0.0f;
             GameObject.Find("Garde").GetComponent<Animator>().SetFloat("Speed", speed);
-        }
 
-<<<<<<< HEAD
-=======
-
-        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 25)
-        {
->>>>>>> f4544260e52546ec588a6ab126851f63cf8d86e4
             // donne un coup
             timerDamages += Time.deltaTime;
             if (timerDamages > timerMaxDamages)

@@ -81,29 +81,14 @@ public class Player : MonoBehaviour {
 
     void FixedUpdate()
     {
-<<<<<<< HEAD
         xSpeed = 800f;
-        zSpeed = 100f;
-=======
+        zSpeed = 25f;
 
->>>>>>> f4544260e52546ec588a6ab126851f63cf8d86e4
-
-            xSpeed = 800f;
-            zSpeed = 25f;
         if (Input.GetKey(KeyCode.LeftArrow) == true && Input.GetKey(KeyCode.RightArrow) == true || (anim.GetBool("fighting") == true) || (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true))
         {
             xSpeed = 0f;
             zSpeed = 0f;
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> f4544260e52546ec588a6ab126851f63cf8d86e4
-
-        /*if (Input.GetKey(KeyCode.UpArrow) == true && Input.GetKey(KeyCode.DownArrow) == true)
-        {
-            zSpeed = 0f;
-        }*/
 
         float x = Input.GetAxis("Horizontal");
 
