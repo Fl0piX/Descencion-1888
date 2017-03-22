@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ia : MonoBehaviour {
 
-	Vector3 dest = Vector3.zero;
+    Vector3 dest = Vector3.zero;
 	public float speed = 0.1f;
     public float damages;
     public float life;
@@ -38,10 +38,7 @@ public class ia : MonoBehaviour {
         {
             GameObject.Find("Garde").GetComponent<Animator>().SetBool("isFighting", false);
 
-
             // Après avoir mis ou reçu un coup, il s'arrête quelques secondes //
-            // Après avoir mis ou reçu un coup, il s'arrête quelques secondes
-
             if (speed == 0.0f)
             {
                 timerMove += Time.deltaTime;
@@ -68,18 +65,13 @@ public class ia : MonoBehaviour {
         {
             speed = 0.0f;
             GameObject.Find("Garde").GetComponent<Animator>().SetFloat("Speed", speed);
-        }
 
-
-        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 25)
-        {
             // donne un coup
             timerDamages += Time.deltaTime;
             if (timerDamages > timerMaxDamages)
             {
                 timerDamages = 0;
                 fight();
-
             }
 
             // reçoit un coup
