@@ -1,12 +1,28 @@
-Initialize engine version: 5.5.1f1 (88d00a7498cd)
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce 840M (ID=0x1341)
-    Vendor:   NVIDIA
-    VRAM:     2020 MB
+    Renderer: Intel(R) HD Graphics (ID=0x22b1)
+    Vendor:   Intel
+    VRAM:     2104 MB
     Driver:   20.19.15.4531
 Begin MonoManager ReloadAssembly
+<<<<<<< HEAD
+Platform assembly: C:\Users\Flopix\Desktop\Descension 1903\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Flopix\Desktop\Descension 1903\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Flopix\Desktop\Descension 1903\Descencion-1888\test3d\Descension_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Flopix\Desktop\Descension 1903\Descencion-1888\test3d\Descension_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Flopix\Desktop\Descension 1903\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Flopix\Desktop\Descension 1903\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Flopix\Desktop\Descension 1903\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Flopix\Desktop\Descension 1903\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Flopix\Desktop\Descension 1903\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Flopix\Desktop\Descension 1903\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.119 seconds
+Platform assembly: C:\Users\Flopix\Desktop\Descension 1903\Descencion-1888\test3d\Descension_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Flopix\Desktop\Descension 1903\Descencion-1888\test3d\Descension_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+=======
 Platform assembly: C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\Assembly-CSharp.dll (this message is harmless)
@@ -21,7 +37,9 @@ Loading C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\
 Platform assembly: C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Coline\Documents\GitHub\Descencion-1888\test3d\Descension_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+>>>>>>> 648ef7d666188be271fd6a1f923e801277a330e1
 <RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
 The referenced script on this Behaviour (Game Object 'menu') is missing!
@@ -32,7 +50,21 @@ The referenced script on this Behaviour (Game Object 'Main Camera') is missing!
  
 (Filename:  Line: 1754)
 
+<<<<<<< HEAD
 UnloadTime: 4.859396 ms
+=======
+<<<<<<< HEAD
+UnloadTime: 5.177769 ms
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: ce0 -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 13.523641 ms
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 577.
+Total: 5.366575 ms (FindLiveObjects: 0.089602 ms CreateObjectMapping: 0.050561 ms MarkObjects: 0.517136 ms  DeleteObjects: 4.707353 ms)
+=======
+UnloadTime: 4.205783 ms
+>>>>>>> 0b4c4f20dafcd6399559dc00f3029d2ff11c26a3
 Setting up 1 worker threads for Enlighten.
   Thread -> id: 2be8 -> priority: 1 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
@@ -45,6 +77,7 @@ NullReferenceException: Object reference not set to an instance of an object
   at MenuPause.Start () [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
+>>>>>>> 648ef7d666188be271fd6a1f923e801277a330e1
 
 NullReferenceException: Object reference not set to an instance of an object
   at MenuPause.Update () [0x00000] in <filename unknown>:0 
@@ -1747,6 +1780,10 @@ NullReferenceException: Object reference not set to an instance of an object
 (Filename:  Line: -1)
 
 NullReferenceException: Object reference not set to an instance of an object
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 0b4c4f20dafcd6399559dc00f3029d2ff11c26a3
   at MenuPause.Update () [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
@@ -24978,6 +25015,7 @@ NullReferenceException: Object reference not set to an instance of an object
 
 NullReferenceException: Object reference not set to an instance of an object
   at MenuPause.Update () [0x00000] in <filename unknown>:0 
+<<<<<<< HEAD
  
 (Filename:  Line: -1)
 
@@ -41398,6 +41436,11 @@ NullReferenceException: Object reference not set to an instance of an object
 
 NullReferenceException: Object reference not set to an instance of an object
   at MenuPause.Update () [0x00000] in <filename unknown>:0 
+=======
+=======
+  at tab.Update () [0x00000] in <filename unknown>:0 
+>>>>>>> 648ef7d666188be271fd6a1f923e801277a330e1
+>>>>>>> 0b4c4f20dafcd6399559dc00f3029d2ff11c26a3
  
 (Filename:  Line: -1)
 
