@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class healthbar : MonoBehaviour {
 
@@ -9,10 +8,13 @@ public class healthbar : MonoBehaviour {
     float timerDeath;
     public float timerMaxDeath;
     float speed = 0.5f;
-    
+    public GameObject go;
+
     void Start()
     {
         timerDeath = 0;
+        go = GameObject.Find("gameover");
+        go.SetActive(false);
     }
 
     void FixedUpdate()
@@ -30,8 +32,8 @@ public class healthbar : MonoBehaviour {
     }
 
     private IEnumerator Death()
-    {        
+    {
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(0);        
+        go.SetActive(true);
     }
 }

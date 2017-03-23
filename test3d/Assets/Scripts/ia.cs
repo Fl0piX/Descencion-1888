@@ -41,7 +41,11 @@ public class ia : MonoBehaviour {
         Animator anim = GetComponent<Animator>();
 
         //déplacements
+<<<<<<< HEAD
         if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) >= 20)
+=======
+        if (Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) >= 25 && Vector3.Distance(GameObject.Find("Gavrouche").transform.position, transform.position) < 100)
+>>>>>>> a7abee80e51c051955bb6da9319a87cc1352e08d
         {
             anim.SetBool("isFighting", false);
 
