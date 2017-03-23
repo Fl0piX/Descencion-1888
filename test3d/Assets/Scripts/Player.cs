@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
     private Rigidbody rb;
     private Animator anim;
     private GameObject rightPunch;
+    
 	// Use this for initialization
 	void Start () {
         rb = gameObject.GetComponent<Rigidbody>();
@@ -59,7 +60,7 @@ public class Player : MonoBehaviour {
             anim.SetFloat("speed", 25);
         }
 
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q) && anim.GetBool("takeDmg") == false)
         {
             StartCoroutine(stopMoveOnHitting());
         }
@@ -125,16 +126,8 @@ public class Player : MonoBehaviour {
     {
         fighting = true;
         anim.SetTrigger("fighting");
-        // Wait for 1 second
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.35f);
         fighting = false;
 
     }
-
-    /*private IEnumerator takeDmg()
-    {
-        
-        yield return new WaitForSeconds(2f);
-        anim.SetBool("takeDmg", false);
-    }*/
 }
